@@ -1,4 +1,4 @@
-%global release_prefix          100
+%global release_prefix          101
 
 Name:                           discord
 Version:                        0.0.15
@@ -42,12 +42,14 @@ users in a chat channel.
 
 %{__cp} -r * %{buildroot}/opt/Discord/
 %{__ln_s} -f /opt/Discord/Discord %{buildroot}/%{_bindir}/
+install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 
 
 %files
 %defattr(-,root,root)
 /opt/Discord/
 %{_bindir}/Discord
+/usr/share/applications/Discord.desktop
 
 
 %clean
@@ -55,6 +57,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Jun 20 2021 Package Store <kitsune.solar@gmail.com> - 0.0.15-101
+- FIX: Discord icon.
+
 * Sun Jun 20 2021 Package Store <kitsune.solar@gmail.com> - 0.0.15-100
 - UPD: Move to GitHub.
 - UPD: License.
