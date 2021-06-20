@@ -10,6 +10,7 @@ Vendor:                         Package Store <https://pkgstore.github.io>
 Packager:                       Kitsune Solar <kitsune.solar@gmail.com>
 
 Source0:                        https://dl.discordapp.net/apps/linux/%{version}/%{name}-%{version}.tar.gz
+Source10:                       Discord.desktop
 
 BuildRequires:                  libXScrnSaver libcxx libatomic
 Requires:                       libXScrnSaver libcxx libatomic
@@ -36,20 +37,20 @@ users in a chat channel.
 
 %install
 %{__rm} -rf %{buildroot}
-%{__mkdir_p} %{buildroot}/%{_bindir}/
+%{__mkdir_p} %{buildroot}%{_bindir}/
 %{__mkdir_p} %{buildroot}/opt/Discord
 %{__mkdir_p} %{buildroot}/usr/share/applications
 
 %{__cp} -r * %{buildroot}/opt/Discord/
-%{__ln_s} -f /opt/Discord/Discord %{buildroot}/%{_bindir}/
-install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
+%{__ln_s} -f /opt/Discord/Discord %{buildroot}%{_bindir}/
+%{__install} -Dp -m 755 %{SOURCE10} %{buildroot}%{_datadir}/applications/Discord.desktop
 
 
 %files
 %defattr(-,root,root)
 /opt/Discord/
 %{_bindir}/Discord
-/usr/share/applications/Discord.desktop
+%{_datadir}/applications/Discord.desktop
 
 
 %clean
