@@ -1,4 +1,4 @@
-%global release_prefix          101
+%global release_prefix          102
 
 Name:                           discord
 Version:                        0.0.15
@@ -14,6 +14,7 @@ Source10:                       Discord.desktop
 
 BuildRequires:                  libXScrnSaver libcxx libatomic
 Requires:                       libXScrnSaver libcxx libatomic
+Requires:                       google-noto-emoji-fonts google-noto-emoji-color-fonts
 AutoReqProv:                    no
 
 %description
@@ -58,6 +59,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Jun 20 2021 Package Store <kitsune.solar@gmail.com> - 0.0.15-102
+- UPD: SPEC - Add requires: "google-noto-emoji".
+
 * Sun Jun 20 2021 Package Store <kitsune.solar@gmail.com> - 0.0.15-101
 - FIX: Discord icon.
 
