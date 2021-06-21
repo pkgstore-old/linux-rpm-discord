@@ -8,6 +8,7 @@
 
 ```
 $ dnf copr enable pkgstore/discord
+$ dnf install -y discord
 ```
 
 ### Open Build Service (OBS)
